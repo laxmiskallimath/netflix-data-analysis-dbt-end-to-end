@@ -1,7 +1,6 @@
 ---
 title: "Netflix Data Analysis | DBT (Data Build Tool) | End-To-End Project"
 author: "Laxmi S Kallimath"
-output: html_document
 ---
 
 # About the Project
@@ -160,7 +159,7 @@ dbt debug
 
 ---
 
-# STEP 9: Staging Model Example
+# STEP 9: Staging Model
 
 ```sql
 with raw_movies as (
@@ -180,7 +179,7 @@ dbt run
 
 ---
 
-# STEP 10: Incremental Model Example
+# STEP 10: Incremental Model
 
 ```sql
 {{ config(materialized='incremental', schema_change='fail') }}
@@ -207,7 +206,7 @@ dbt run -m fct_ratings
 
 ---
 
-# STEP 11: Ephemeral Model Example
+# STEP 11: Ephemeral Model
 
 ```sql
 {{ config(materialized='ephemeral') }}
@@ -236,7 +235,7 @@ LEFT JOIN tags t ON t.tagId = s.tagId;
 
 ---
 
-# STEP 12: Seeds Example
+# STEP 12: Seeds 
 
 ### Seed File (CSV)
 ```csv
@@ -253,7 +252,7 @@ dbt seed
 
 ---
 
-## Model Example Using Seed
+## Model Using Seed
 
 ```sql
 with fct_ratings as (select * from {{ ref('fct_ratings') }}),
@@ -342,7 +341,7 @@ dbt docs serve
 
 ---
 
-# STEP 16: Macros Example
+# STEP 16: Macros
 
 ```sql
 {% macro no_nulls_in_columns(model) %}
@@ -361,7 +360,7 @@ where
 
 ---
 
-# STEP 17: Analysis Example
+# STEP 17: Analysis
 
 ```sql
 select 
